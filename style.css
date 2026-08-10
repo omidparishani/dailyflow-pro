@@ -1,1 +1,13 @@
-body{font-family:tahoma;background:#f1f5f9;padding:20px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}.card{background:white;border-radius:20px;padding:20px;box-shadow:0 10px 30px #0002;margin:10px}textarea{width:100%;height:180px}button{padding:10px;border:0;border-radius:10px;background:#4f46e5;color:white;margin:5px}#timer{font-size:45px;text-align:center;font-weight:bold}.bar{height:25px;color:white;border-radius:20px;margin:8px}@media(max-width:700px){.cards{grid-template-columns:1fr}}
+
+body{font-family:Tahoma;background:#f1f5f9;margin:0;padding:20px}
+.app{max-width:1000px;margin:auto}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:#fff;padding:20px;border-radius:22px;box-shadow:0 10px 30px #0002;margin-bottom:20px}
+textarea{width:100%;height:220px;border-radius:15px;padding:12px;font-size:16px}
+button{background:#4f46e5;color:#fff;border:0;border-radius:12px;padding:12px;margin:5px;cursor:pointer}
+.timer{font-size:50px;text-align:center;font-weight:bold;margin:20px}
+.next{text-align:center;background:#eef2ff;padding:12px;border-radius:12px}
+li{padding:10px;background:#f8fafc;border-radius:10px;margin:5px}
+.bar{height:25px;border-radius:20px;color:white;text-align:center;margin:8px 0;animation:grow 1s}
+@keyframes grow{from{width:0}}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
