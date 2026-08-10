@@ -1,40 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DailyFlow Pro v2 Final</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DailyFlow Pro v3</title>
+
 <link rel="stylesheet" href="style.css">
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#6366f1">
 </head>
+
 <body>
+
 <div class="app">
-<h1>🎤 DailyFlow Pro</h1>
-<div class="grid">
-<div class="card">
-<h2>اعضای تیم</h2>
-<textarea id="names" placeholder="علی&#10;محمد&#10;سارا"></textarea>
-<button id="draw">🎲 قرعه کشی</button>
+
+<header class="header">
+    <h1>🎤 DailyFlow Pro</h1>
+
+    <button id="themeBtn">
+        🌙
+    </button>
+</header>
+
+
+<section class="card">
+
+<h2>👥 اعضای تیم</h2>
+
+<textarea 
+id="names"
+placeholder="علی
+محمد
+سارا"></textarea>
+
+
+<div class="actions">
+<button id="draw">
+🎲 شروع قرعه کشی
+</button>
 </div>
 
-<div class="card">
-<h2 id="current">آماده</h2>
-<div class="timer" id="timer">00:00</div>
-<div class="next" id="next">نفر بعدی: -</div>
-<div>
-<button id="start">▶ شروع</button>
-<button id="pause">⏸ توقف</button>
-<button id="skip">⏭ Skip</button>
-<button id="finish">⏹ پایان</button>
-</div>
-<ol id="list"></ol>
-</div>
+</section>
+
+
+
+<section class="card speaker">
+
+
+<h2 id="current">
+آماده شروع
+</h2>
+
+
+<div class="timer" id="timer">
+00:00
 </div>
 
-<div class="card">
-<h2>📊 گزارش جلسه</h2>
+
+<div class="next">
+نفر بعدی:
+<span id="next">
+-
+</span>
+</div>
+
+
+<div class="controls">
+
+<button id="start">
+▶ شروع
+</button>
+
+<button id="pause">
+⏸ توقف
+</button>
+
+<button id="skip">
+⏭ Skip
+</button>
+
+<button id="back">
+⬅ قبلی
+</button>
+
+<button id="finish">
+⏹ پایان
+</button>
+
+</div>
+
+
+<ol id="orderList"></ol>
+
+
+</section>
+
+
+
+<section class="card">
+
+<h2>
+📊 گزارش جلسه
+</h2>
+
 <div id="report"></div>
+
+</section>
+
+
+
+<section class="card">
+
+<h2>
+📚 تاریخچه
+</h2>
+
+<div id="history"></div>
+
+</section>
+
+
 </div>
-</div>
+
+
 <script src="app.js"></script>
+
+
+<script>
+
+if("serviceWorker" in navigator){
+
+navigator.serviceWorker.register(
+"service-worker.js"
+);
+
+}
+
+</script>
+
+
 </body>
 </html>

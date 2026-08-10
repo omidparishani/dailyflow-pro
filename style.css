@@ -1,13 +1,455 @@
+*{
+    box-sizing:border-box;
+}
 
-body{font-family:Tahoma;background:#f1f5f9;margin:0;padding:20px}
-.app{max-width:1000px;margin:auto}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.card{background:#fff;padding:20px;border-radius:22px;box-shadow:0 10px 30px #0002;margin-bottom:20px}
-textarea{width:100%;height:220px;border-radius:15px;padding:12px;font-size:16px}
-button{background:#4f46e5;color:#fff;border:0;border-radius:12px;padding:12px;margin:5px;cursor:pointer}
-.timer{font-size:50px;text-align:center;font-weight:bold;margin:20px}
-.next{text-align:center;background:#eef2ff;padding:12px;border-radius:12px}
-li{padding:10px;background:#f8fafc;border-radius:10px;margin:5px}
-.bar{height:25px;border-radius:20px;color:white;text-align:center;margin:8px 0;animation:grow 1s}
-@keyframes grow{from{width:0}}
-@media(max-width:700px){.grid{grid-template-columns:1fr}}
+
+body{
+
+    margin:0;
+
+    font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
+    background:#f1f5f9;
+
+    color:#1e293b;
+
+    transition:.3s;
+
+}
+
+
+body.dark{
+
+    background:#020617;
+
+    color:#e2e8f0;
+
+}
+
+
+
+.app{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+
+
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+.header h1{
+
+    font-size:32px;
+
+}
+
+
+
+
+
+button{
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:12px 18px;
+
+    margin:5px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    background:#6366f1;
+
+    color:white;
+
+    transition:.25s;
+
+}
+
+
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    opacity:.9;
+
+}
+
+
+
+
+
+.card{
+
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+
+    box-shadow:
+
+    0 15px 40px #0002;
+
+
+    animation:
+    fade .4s;
+
+
+}
+
+
+
+.dark .card{
+
+    background:#111827;
+
+    box-shadow:
+    0 15px 40px #0008;
+
+}
+
+
+
+
+
+@keyframes fade{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
+
+to{
+
+    opacity:1;
+
+}
+
+}
+
+
+
+
+
+textarea{
+
+    width:100%;
+
+    height:220px;
+
+    resize:none;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    border:2px solid #e2e8f0;
+
+    font-size:17px;
+
+}
+
+
+
+
+
+.dark textarea{
+
+    background:#020617;
+
+    color:white;
+
+    border-color:#334155;
+
+}
+
+
+
+
+
+.speaker{
+
+    text-align:center;
+
+}
+
+
+
+
+#current{
+
+    font-size:35px;
+
+}
+
+
+
+
+
+.timer{
+
+    font-size:70px;
+
+    font-weight:bold;
+
+    margin:20px;
+
+    font-family:monospace;
+
+}
+
+
+
+
+
+.next{
+
+    background:#eef2ff;
+
+    color:#3730a3;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    font-size:18px;
+
+}
+
+
+
+
+
+.dark .next{
+
+    background:#312e81;
+
+    color:white;
+
+}
+
+
+
+
+
+.controls{
+
+    margin:20px 0;
+
+}
+
+
+
+
+
+ol{
+
+    padding:0;
+
+}
+
+
+
+li{
+
+    list-style:none;
+
+    padding:15px;
+
+    margin:8px 0;
+
+    background:#f8fafc;
+
+    border-radius:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+}
+
+
+
+
+
+.dark li{
+
+    background:#1e293b;
+
+}
+
+
+
+
+
+li.active{
+
+    border:3px solid #6366f1;
+
+}
+
+
+
+
+
+.reportRow{
+
+    margin:20px 0;
+
+}
+
+
+
+
+.progress{
+
+    height:28px;
+
+    background:#e2e8f0;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin-top:10px;
+
+}
+
+
+
+
+
+.dark .progress{
+
+    background:#334155;
+
+}
+
+
+
+
+
+.bar{
+
+    height:100%;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:30px;
+
+
+    animation:
+
+    grow 1.2s ease;
+
+}
+
+
+
+
+
+@keyframes grow{
+
+from{
+
+    width:0!important;
+
+}
+
+}
+
+
+
+
+
+.historyItem{
+
+    background:#f8fafc;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    margin:10px 0;
+
+}
+
+
+
+
+.dark .historyItem{
+
+    background:#1e293b;
+
+}
+
+
+
+
+@media(max-width:700px){
+
+
+.header h1{
+
+    font-size:22px;
+
+}
+
+
+
+.timer{
+
+    font-size:50px;
+
+}
+
+
+
+button{
+
+    width:100%;
+
+}
+
+
+}
