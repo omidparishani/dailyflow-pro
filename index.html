@@ -1,52 +1,11 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0f172a"><meta name="description" content="ساخت ترتیب تصادفی صحبت اعضای تیم در Daily">
-<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css">
-<title>DailyFlow — ترتیب صحبت</title>
-</head>
-<body>
-<div class="app-shell">
-  <header class="topbar">
-    <div class="brand"><div class="logo">D</div><div><strong>DailyFlow</strong><span>Speaking Order</span></div></div>
-    <button class="theme-btn" id="themeBtn" aria-label="تغییر حالت نمایش">☾</button>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div><span class="pill">DAILY / STAND-UP</span><h1>چه کسی صحبت می‌کند؟</h1><p>لیست تیم را وارد کن؛ DailyFlow یک ترتیب منصفانه و تصادفی برای امروز می‌سازد.</p></div>
-      <div class="date-box"><span>امروز</span><strong id="today"></strong></div>
-    </section>
-
-    <section class="workspace">
-      <aside class="panel people-panel">
-        <div class="panel-head"><div><h2>اعضای تیم</h2><p>هر نفر در یک خط</p></div><span class="count" id="count">۰ نفر</span></div>
-        <textarea id="names" placeholder="علی&#10;محمد&#10;سارا&#10;رضا&#10;امیر"></textarea>
-        <div class="quick-actions">
-          <button class="btn ghost" id="sampleBtn">＋ نمونه</button>
-          <button class="btn ghost" id="clearBtn">پاک کردن</button>
-        </div>
-        <label class="option"><span><b>نفر اول تکراری نباشد</b><small>ترتیب روز قبل را در نظر بگیر</small></span><input id="avoidRepeat" type="checkbox" checked></label>
-        <button class="btn primary full" id="drawBtn">🎲 قرعه‌کشی امروز</button>
-      </aside>
-
-      <section class="panel result-panel">
-        <div class="panel-head"><div><h2>ترتیب امروز</h2><p id="status">برای شروع قرعه‌کشی کن.</p></div><button class="reset" id="resetBtn">↻</button></div>
-        <div id="roulette" class="roulette hidden"><div class="roulette-name" id="rouletteName">—</div><div class="spinner"></div></div>
-        <div id="empty" class="empty"><div class="mic">🎤</div><h3>میکروفن دست کیه؟</h3><p>با قرعه‌کشی، نفر اول را مشخص کن.</p></div>
-        <ol id="order" class="order"></ol>
-        <div id="nextPanel" class="next hidden"><div><small>نفر بعدی</small><strong id="nextName">—</strong></div><button class="btn primary" id="nextBtn">▶ شروع صحبت</button></div>
-      </section>
-    </section>
-
-    <section class="panel history-panel">
-      <div class="panel-head"><div><h2>تاریخچه</h2><p>آخرین قرعه‌کشی‌ها روی این دستگاه</p></div><button class="btn ghost" id="clearHistory">حذف تاریخچه</button></div>
-      <div id="history" class="history"></div>
-    </section>
-  </main>
-  <footer>DailyFlow · مناسب برای Daily و Stand-up تیم‌ها</footer>
-</div>
-<div id="toast" class="toast"></div>
-<script src="app.js"></script>
-</body></html>
+<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DailyFlow Pro v2</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<h1>🎤 DailyFlow Pro v2</h1>
+<div class="cards">
+<section class="card"><h2>اعضا</h2><textarea id="names" placeholder="علی\nمحمد\nسارا"></textarea><button onclick="draw()">🎲 قرعه کشی</button></section>
+<section class="card"><h2 id="speaker">آماده</h2><div id="timer">00:00</div><p id="next"></p>
+<button onclick="start()">▶ شروع</button><button onclick="pause()">⏸ توقف</button><button onclick="skip()">⏭ Skip</button><button onclick="finish()">⏹ پایان</button>
+<ol id="list"></ol></section></div>
+<section class="card"><h2>📊 گزارش</h2><div id="report"></div></section>
+</main><script src="app.js"></script></body></html>
