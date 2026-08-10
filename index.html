@@ -1,146 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DailyFlow Pro v3</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="manifest" href="manifest.json">
-
-<meta name="theme-color" content="#6366f1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f172a"><meta name="description" content="ساخت ترتیب تصادفی صحبت اعضای تیم در Daily">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css">
+<title>DailyFlow — ترتیب صحبت</title>
 </head>
-
 <body>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand"><div class="logo">D</div><div><strong>DailyFlow</strong><span>Speaking Order</span></div></div>
+    <button class="theme-btn" id="themeBtn" aria-label="تغییر حالت نمایش">☾</button>
+  </header>
 
-<div class="app">
+  <main>
+    <section class="hero">
+      <div><span class="pill">DAILY / STAND-UP</span><h1>چه کسی صحبت می‌کند؟</h1><p>لیست تیم را وارد کن؛ DailyFlow یک ترتیب منصفانه و تصادفی برای امروز می‌سازد.</p></div>
+      <div class="date-box"><span>امروز</span><strong id="today"></strong></div>
+    </section>
 
-<header class="header">
-    <h1>🎤 DailyFlow Pro</h1>
+    <section class="workspace">
+      <aside class="panel people-panel">
+        <div class="panel-head"><div><h2>اعضای تیم</h2><p>هر نفر در یک خط</p></div><span class="count" id="count">۰ نفر</span></div>
+        <textarea id="names" placeholder="علی&#10;محمد&#10;سارا&#10;رضا&#10;امیر"></textarea>
+        <div class="quick-actions">
+          <button class="btn ghost" id="sampleBtn">＋ نمونه</button>
+          <button class="btn ghost" id="clearBtn">پاک کردن</button>
+        </div>
+        <label class="option"><span><b>نفر اول تکراری نباشد</b><small>ترتیب روز قبل را در نظر بگیر</small></span><input id="avoidRepeat" type="checkbox" checked></label>
+        <button class="btn primary full" id="drawBtn">🎲 قرعه‌کشی امروز</button>
+      </aside>
 
-    <button id="themeBtn">
-        🌙
-    </button>
-</header>
+      <section class="panel result-panel">
+        <div class="panel-head"><div><h2>ترتیب امروز</h2><p id="status">برای شروع قرعه‌کشی کن.</p></div><button class="reset" id="resetBtn">↻</button></div>
+        <div id="roulette" class="roulette hidden"><div class="roulette-name" id="rouletteName">—</div><div class="spinner"></div></div>
+        <div id="empty" class="empty"><div class="mic">🎤</div><h3>میکروفن دست کیه؟</h3><p>با قرعه‌کشی، نفر اول را مشخص کن.</p></div>
+        <ol id="order" class="order"></ol>
+        <div id="nextPanel" class="next hidden"><div><small>نفر بعدی</small><strong id="nextName">—</strong></div><button class="btn primary" id="nextBtn">▶ شروع صحبت</button></div>
+      </section>
+    </section>
 
-
-<section class="card">
-
-<h2>👥 اعضای تیم</h2>
-
-<textarea 
-id="names"
-placeholder="علی
-محمد
-سارا"></textarea>
-
-
-<div class="actions">
-<button id="draw">
-🎲 شروع قرعه کشی
-</button>
+    <section class="panel history-panel">
+      <div class="panel-head"><div><h2>تاریخچه</h2><p>آخرین قرعه‌کشی‌ها روی این دستگاه</p></div><button class="btn ghost" id="clearHistory">حذف تاریخچه</button></div>
+      <div id="history" class="history"></div>
+    </section>
+  </main>
+  <footer>DailyFlow · مناسب برای Daily و Stand-up تیم‌ها</footer>
 </div>
-
-</section>
-
-
-
-<section class="card speaker">
-
-
-<h2 id="current">
-آماده شروع
-</h2>
-
-
-<div class="timer" id="timer">
-00:00
-</div>
-
-
-<div class="next">
-نفر بعدی:
-<span id="next">
--
-</span>
-</div>
-
-
-<div class="controls">
-
-<button id="start">
-▶ شروع
-</button>
-
-<button id="pause">
-⏸ توقف
-</button>
-
-<button id="skip">
-⏭ Skip
-</button>
-
-<button id="back">
-⬅ قبلی
-</button>
-
-<button id="finish">
-⏹ پایان
-</button>
-
-</div>
-
-
-<ol id="orderList"></ol>
-
-
-</section>
-
-
-
-<section class="card">
-
-<h2>
-📊 گزارش جلسه
-</h2>
-
-<div id="report"></div>
-
-</section>
-
-
-
-<section class="card">
-
-<h2>
-📚 تاریخچه
-</h2>
-
-<div id="history"></div>
-
-</section>
-
-
-</div>
-
-
+<div id="toast" class="toast"></div>
 <script src="app.js"></script>
-
-
-<script>
-
-if("serviceWorker" in navigator){
-
-navigator.serviceWorker.register(
-"service-worker.js"
-);
-
-}
-
-</script>
-
-
-</body>
-</html>
+</body></html>
